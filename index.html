@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ═══════════════════════════════════════════
+       SEO META TAGS
+  ═══════════════════════════════════════════ -->
+  <title>India Finance Toolkit – EMI Calculator, Age Calculator & Date Calculator 2025</title>
+  <meta name="description" content="Free India finance toolkit with EMI loan calculator, age calculator, and date difference calculator. Get instant results for home loan, car loan, personal loan EMI with full amortisation schedule.">
+  <meta name="keywords" content="EMI calculator India, home loan EMI calculator, age calculator, date difference calculator, loan calculator India, personal loan EMI, car loan EMI, amortisation schedule India">
+  <meta name="author" content="India Finance Toolkit">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://yourdomain.com/">
+
+  <!-- Open Graph (for social sharing) -->
+  <meta property="og:title" content="India Finance Toolkit – EMI, Age & Date Calculator">
+  <meta property="og:description" content="Free calculators for EMI, age, and date difference. Instant results with full loan amortisation schedule.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://yourdomain.com/">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- ═══════════════════════════════════════════
+       GOOGLE ADSENSE
+  ═══════════════════════════════════════════ -->
+  <meta name="google-adsense-account" content="ca-pub-7488990313141502">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7488990313141502" crossorigin="anonymous"></script>
+
+  <!-- ═══════════════════════════════════════════
+       SCHEMA.ORG STRUCTURED DATA
+  ═══════════════════════════════════════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "India Finance Toolkit",
+    "description": "Free EMI calculator, age calculator, and date difference calculator for India.",
+    "applicationCategory": "FinanceApplication",
+    "operatingSystem": "Any",
+    "offers": { "@type": "Offer", "price": "0", "priceCurrency": "INR" },
+    "featureList": [
+      "Home Loan EMI Calculator",
+      "Car Loan EMI Calculator",
+      "Personal Loan EMI Calculator",
+      "Loan Amortisation Schedule",
+      "Age Calculator with Zodiac",
+      "Date Difference Calculator"
+    ],
+    "inLanguage": "en-IN"
+  }
+  </script>
+
+  <!-- Chart.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+
+  <!-- Tabler Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #f5f5f3;
+      --surface: #ffffff;
+      --surface2: #f0efeb;
+      --border: rgba(0,0,0,0.1);
+      --border2: rgba(0,0,0,0.18);
+      --text: #1a1a18;
+      --text2: #5f5e5a;
+      --text3: #888780;
+      --blue: #185FA5;
+      --blue-light: #E6F1FB;
+      --blue-dark: #0C447C;
+      --teal: #0F6E56;
+      --teal-light: #E1F5EE;
+      --red: #A32D2D;
+      --red-mid: #E24B4A;
+      --amber: #854F0B;
+      --amber-light: #FAEEDA;
+      --green: #3B6D11;
+      --radius: 10px;
+      --radius-lg: 14px;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 15px;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--surface);
+      border-bottom: 0.5px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 58px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--blue);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .logo i { font-size: 20px; }
+    nav { display: flex; gap: 4px; }
+    nav a {
+      font-size: 13px;
+      color: var(--text2);
+      text-decoration: none;
+      padding: 6px 10px;
+      border-radius: 6px;
+    }
+    nav a:hover { background: var(--surface2); color: var(--text); }
+
+    /* ── LAYOUT ── */
+    .page { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem 4rem; }
+
+    /* ── AD SLOTS ── */
+    .ad-slot {
+      background: var(--surface);
+      border: 0.5px dashed var(--border2);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--text3);
+      font-size: 12px;
+      text-align: center;
+      margin-bottom: 1.25rem;
+    }
+    .ad-leaderboard { height: 90px; width: 100%; }
+    .ad-rectangle { height: 250px; width: 100%; }
+    .ad-banner { height: 60px; width: 100%; }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: 2rem 1rem 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    .hero h1 {
+      font-size: clamp(22px, 4vw, 32px);
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+    .hero p { font-size: 15px; color: var(--text2); max-width: 560px; margin: 0 auto; }
+    .badges { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; margin-top: 14px; }
+    .badge {
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 99px;
+      background: var(--blue-light);
+      color: var(--blue-dark);
+      font-weight: 500;
+    }
+
+    /* ── TABS ── */
+    .tabs {
+      display: flex;
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+    }
+    .tab-btn {
+      flex: 1;
+      padding: 12px 8px;
+      background: transparent;
+      border: none;
+      border-right: 0.5px solid var(--border);
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      transition: background 0.15s, color 0.15s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .tab-btn:last-child { border-right: none; }
+    .tab-btn i { font-size: 20px; }
+    .tab-btn.active { background: var(--blue); color: #fff; }
+    .tab-btn:not(.active):hover { background: var(--surface2); }
+
+    /* ── PANELS ── */
+    .panel { display: none; }
+    .panel.active { display: block; }
+
+    /* ── CARDS ── */
+    .card {
+      background: var(--surface);
+      border: 0.5px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text2);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* ── GRID ── */
+    .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+    /* ── FORM ── */
+    label { font-size: 13px; color: var(--text2); display: block; margin-bottom: 5px; }
+    input[type=number], input[type=date], input[type=month], select {
+      width: 100%;
+      padding: 8px 12px;
+      border: 0.5px solid var(--border2);
+      border-radius: var(--radius);
+      font-family: inherit;
+      font-size: 14px;
+      background: var(--surface);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.15s;
+    }
+    input:focus, select:focus { border-color: var(--blue); }
+
+    /* Range slider */
+    .range-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 14px;
+    }
+    .range-row label { width: 140px; flex-shrink: 0; margin: 0; }
+    input[type=range] {
+      flex: 1;
+      -webkit-appearance: none;
+      height: 4px;
+      background: var(--surface2);
+      border-radius: 99px;
+      outline: none;
+      border: none;
+      padding: 0;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      background: var(--blue);
+      cursor: pointer;
+    }
+    .range-val {
+      font-size: 14px;
+      font-weight: 500;
+      min-width: 75px;
+      text-align: right;
+      color: var(--text);
+    }
+    .range-val input {
+      width: 100%;
+      text-align: right;
+      font-weight: 500;
+      padding: 4px 6px;
+      font-size: 13px;
+    }
+
+    /* ── METRICS ── */
+    .metrics { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; margin-bottom: 1rem; }
+    .metric { background: var(--surface2); border-radius: var(--radius); padding: 12px 14px; }
+    .metric-lbl { font-size: 11px; color: var(--text3); margin-bottom: 4px; }
+    .metric-val { font-size: 19px; font-weight: 600; color: var(--text); }
+    .metric-val.blue { color: var(--blue); }
+    .metric-val.red { color: var(--red); }
+    .metric-val.green { color: var(--teal); }
+
+    /* ── CHART ── */
+    .chart-wrap { height: 200px; position: relative; margin-bottom: 1rem; }
+
+    /* ── AMORTISATION ── */
+    .amort-scroll { max-height: 240px; overflow-y: auto; border: 0.5px solid var(--border); border-radius: var(--radius); }
+    table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    th { background: var(--surface2); padding: 7px 10px; text-align: left; font-weight: 500; color: var(--text2); position: sticky; top: 0; z-index: 1; }
+    td { padding: 6px 10px; border-top: 0.5px solid var(--border); color: var(--text); }
+    tr:hover td { background: var(--surface2); }
+
+    /* ── DIFF ROWS ── */
+    .diff-rows { display: flex; flex-direction: column; gap: 8px; margin-bottom: 1rem; }
+    .diff-row { display: flex; justify-content: space-between; align-items: center; padding: 9px 14px; background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius); font-size: 13px; }
+    .diff-key { color: var(--text2); display: flex; align-items: center; gap: 6px; }
+    .diff-val { font-weight: 500; color: var(--text); }
+
+    /* ── AGE GRID ── */
+    .age-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 1rem; }
+    .age-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 16px; text-align: center; }
+    .age-num { font-size: 32px; font-weight: 600; color: var(--blue); }
+    .age-lbl { font-size: 12px; color: var(--text2); margin-top: 2px; }
+
+    /* ── RESULT BIG ── */
+    .result-big { font-size: 26px; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+    .result-sub { font-size: 13px; color: var(--text2); }
+
+    /* ── SECTION HEADING ── */
+    .section-hd { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 12px; display: flex; align-items: center; gap: 6px; }
+
+    /* ── SIDEBAR LAYOUT ── */
+    .content-grid { display: grid; grid-template-columns: 1fr 300px; gap: 1.25rem; align-items: start; }
+    .sidebar { display: flex; flex-direction: column; gap: 1rem; }
+    .sidebar-card { background: var(--surface); border: 0.5px solid var(--border); border-radius: var(--radius-lg); padding: 1.25rem; }
+    .sidebar-card h3 { font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 10px; }
+    .faq-item { margin-bottom: 14px; }
+    .faq-item dt { font-size: 13px; font-weight: 500; color: var(--text); margin-bottom: 4px; }
+    .faq-item dd { font-size: 12px; color: var(--text2); line-height: 1.5; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--surface);
+      border-top: 0.5px solid var(--border);
+      padding: 1.5rem;
+      text-align: center;
+      font-size: 12px;
+      color: var(--text3);
+      margin-top: 3rem;
+    }
+    footer a { color: var(--text2); text-decoration: none; margin: 0 8px; }
+    footer a:hover { color: var(--text); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .sidebar { order: -1; }
+      .row2, .row3 { grid-template-columns: 1fr; }
+      .age-grid { grid-template-columns: 1fr 1fr; }
+      .range-row label { width: 110px; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ════════════════════════════════════════
+     HEADER
+════════════════════════════════════════ -->
+<header>
+  <div class="logo">
+    <i class="ti ti-calculator" aria-hidden="true"></i>
+    FinCalc India
+  </div>
+  <nav aria-label="Main navigation">
+    <a href="#emi-section">EMI Calculator</a>
+    <a href="#date-section">Date Calculator</a>
+    <a href="#age-section">Age Calculator</a>
+  </nav>
+</header>
+
+<!-- ════════════════════════════════════════
+     MAIN
+════════════════════════════════════════ -->
+<main class="page">
+
+  <!-- TOP AD (Leaderboard) -->
+  <div aria-label="Advertisement">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" aria-labelledby="hero-heading">
+    <h1 id="hero-heading">India Finance Toolkit</h1>
+    <p>Free EMI calculator, age calculator &amp; date difference calculator — instant results, no sign-up needed.</p>
+    <div class="badges">
+      <span class="badge">100% Free</span>
+      <span class="badge">No Sign-up</span>
+      <span class="badge">Amortisation Schedule</span>
+      <span class="badge">India-specific</span>
+    </div>
+  </section>
+
+  <div class="content-grid">
+
+    <!-- ── LEFT: TOOL PANELS ── -->
+    <div>
+
+      <!-- TABS -->
+      <div class="tabs" role="tablist" aria-label="Calculator tabs">
+        <button class="tab-btn active" role="tab" aria-selected="true" aria-controls="panel-emi" onclick="switchTab('emi',this)">
+          <i class="ti ti-building-bank" aria-hidden="true"></i>EMI calculator
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-date" onclick="switchTab('date',this)">
+          <i class="ti ti-calendar-event" aria-hidden="true"></i>Date difference
+        </button>
+        <button class="tab-btn" role="tab" aria-selected="false" aria-controls="panel-age" onclick="switchTab('age',this)">
+          <i class="ti ti-cake" aria-hidden="true"></i>Age calculator
+        </button>
+      </div>
+
+      <!-- ══════ EMI PANEL ══════ -->
+      <div id="panel-emi" class="panel active" role="tabpanel" aria-labelledby="tab-emi">
+
+        <h2 id="emi-section" style="font-size:18px;font-weight:500;margin-bottom:1rem">EMI calculator</h2>
+
+        <div class="card">
+          <div class="card-title"><i class="ti ti-adjustments-horizontal" aria-hidden="true"></i> Loan parameters</div>
+
+          <div class="range-row">
+            <label for="loan-slider">Loan amount (₹)</label>
+            <input type="range" id="loan-slider" min="50000" max="10000000" step="50000" value="1000000" oninput="syncLoan(this.value)" aria-label="Loan amount slider">
+            <div class="range-val"><input type="number" id="loan-amt" value="1000000" min="50000" max="10000000" oninput="syncLoanInput(this.value)" aria-label="Loan amount"></div>
+          </div>
+
+          <div class="range-row">
+            <label for="rate-slider">Interest rate (%)</label>
+            <input type="range" id="rate-slider" min="5" max="24" step="0.1" value="8.5" oninput="syncRate(this.value)" aria-label="Interest rate slider">
+            <span class="range-val" id="rate-disp">8.5%</span>
+          </div>
+
+          <div class="range-row">
+            <label for="tenure-slider">Tenure (years)</label>
+            <input type="range" id="tenure-slider" min="1" max="30" step="1" value="10" oninput="syncTenure(this.value)" aria-label="Tenure slider">
+            <span class="range-val" id="tenure-disp">10 yr</span>
+          </div>
+
+          <div class="row2" style="margin-top:8px">
+            <div>
+              <label for="loan-type">Loan type</label>
+              <select id="loan-type" onchange="calcEMI()">
+                <option value="home">Home loan</option>
+                <option value="car">Car loan</option>
+                <option value="personal">Personal loan</option>
+                <option value="education">Education loan</option>
+                <option value="business">Business loan</option>
+              </select>
+            </div>
+            <div>
+              <label for="start-month">Loan start month</label>
+              <input type="month" id="start-month">
+            </div>
+          </div>
+        </div>
+
+        <!-- EMI METRICS -->
+        <div class="metrics" id="emi-metrics"></div>
+
+        <!-- MID AD (after results, before chart) -->
+        <div aria-label="Advertisement" style="margin-bottom:1rem">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <!-- CHART -->
+        <div class="card">
+          <div class="section-hd"><i class="ti ti-chart-bar" aria-hidden="true"></i> Principal vs interest by year</div>
+          <div class="chart-wrap"><canvas id="emi-chart" aria-label="Loan repayment chart" role="img"></canvas></div>
+        </div>
+
+        <!-- AMORTISATION -->
+        <div class="card">
+          <div class="section-hd"><i class="ti ti-list" aria-hidden="true"></i> Amortisation schedule</div>
+          <div class="amort-scroll">
+            <table>
+              <thead>
+                <tr><th>#</th><th>Month</th><th>EMI</th><th>Principal</th><th>Interest</th><th>Balance</th></tr>
+              </thead>
+              <tbody id="amort-body"></tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- SEO CONTENT FOR EMI -->
+        <section class="card" aria-label="About EMI calculator">
+          <div class="section-hd"><i class="ti ti-info-circle" aria-hidden="true"></i> How is EMI calculated?</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:10px">
+            EMI (Equated Monthly Instalment) is calculated using the formula: <strong>EMI = P × r × (1+r)ⁿ / ((1+r)ⁿ − 1)</strong>, where P is the principal loan amount, r is the monthly interest rate (annual rate ÷ 12 ÷ 100), and n is the number of monthly instalments.
+          </p>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6">
+            A lower interest rate or longer tenure reduces your monthly EMI, but a longer tenure increases total interest paid. Use this calculator to find the right balance for home loans, car loans, and personal loans in India.
+          </p>
+        </section>
+
+      </div><!-- /panel-emi -->
+
+      <!-- ══════ DATE PANEL ══════ -->
+      <div id="panel-date" class="panel" role="tabpanel" aria-labelledby="tab-date">
+        <h2 id="date-section" style="font-size:18px;font-weight:500;margin-bottom:1rem">Date difference calculator</h2>
+
+        <div class="card">
+          <div class="card-title"><i class="ti ti-calendar-diff" aria-hidden="true"></i> Find days between two dates</div>
+          <div class="row2">
+            <div><label for="d1">Start date</label><input type="date" id="d1" onchange="calcDate()"></div>
+            <div><label for="d2">End date</label><input type="date" id="d2" onchange="calcDate()"></div>
+          </div>
+        </div>
+
+        <div id="date-diff-result" style="display:none;margin-bottom:1rem">
+          <div class="diff-rows" id="diff-rows"></div>
+        </div>
+
+        <div class="card">
+          <div class="card-title"><i class="ti ti-plus" aria-hidden="true"></i> Add or subtract days from a date</div>
+          <div class="row2">
+            <div>
+              <label for="add-from">From date</label>
+              <input type="date" id="add-from" onchange="calcAddDays()">
+            </div>
+            <div>
+              <label for="add-days">Days to add (use − for subtract)</label>
+              <input type="number" id="add-days" placeholder="e.g. 90 or -30" oninput="calcAddDays()">
+            </div>
+          </div>
+        </div>
+
+        <div id="add-result-card" style="display:none" class="card">
+          <div class="section-hd"><i class="ti ti-calendar-check" aria-hidden="true"></i> Result</div>
+          <div id="add-result"></div>
+        </div>
+
+        <div aria-label="Advertisement" style="margin-bottom:1rem">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <section class="card">
+          <div class="section-hd"><i class="ti ti-info-circle" aria-hidden="true"></i> Uses of date difference calculator</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6">
+            Calculate the number of days between two dates for leave tracking, project timelines, loan tenure, FD maturity, notice period calculation, visa validity, insurance policy duration, and more. Also useful for calculating working days and weeks between any two dates in India.
+          </p>
+        </section>
+
+      </div><!-- /panel-date -->
+
+      <!-- ══════ AGE PANEL ══════ -->
+      <div id="panel-age" class="panel" role="tabpanel" aria-labelledby="tab-age">
+        <h2 id="age-section" style="font-size:18px;font-weight:500;margin-bottom:1rem">Age calculator</h2>
+
+        <div class="card">
+          <div class="card-title"><i class="ti ti-cake" aria-hidden="true"></i> Enter your date of birth</div>
+          <div class="row2">
+            <div><label for="dob">Date of birth</label><input type="date" id="dob" onchange="calcAge()"></div>
+            <div><label for="age-ref">Calculate age on</label><input type="date" id="age-ref" onchange="calcAge()"></div>
+          </div>
+        </div>
+
+        <div id="age-result" style="display:none">
+          <div class="age-grid" id="age-grid"></div>
+          <div class="diff-rows" id="age-rows"></div>
+        </div>
+
+        <div aria-label="Advertisement" style="margin-bottom:1rem">
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+        </div>
+
+        <section class="card">
+          <div class="section-hd"><i class="ti ti-info-circle" aria-hidden="true"></i> About the age calculator</div>
+          <p style="font-size:13px;color:var(--text2);line-height:1.6">
+            Calculate your exact age in years, months, days, total weeks, and total hours. Useful for government form applications, passport/Aadhaar updates, school admissions, retirement planning, and insurance applications in India. Also shows your zodiac sign (sun sign) and days until your next birthday.
+          </p>
+        </section>
+
+      </div><!-- /panel-age -->
+
+    </div><!-- /left column -->
+
+    <!-- ── RIGHT: SIDEBAR ── -->
+    <aside class="sidebar" aria-label="Sidebar">
+
+      <!-- SIDEBAR AD (Rectangle 300x250) -->
+      <div aria-label="Advertisement">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      </div>
+
+      <div class="sidebar-card">
+        <h3><i class="ti ti-help-circle" style="font-size:16px;vertical-align:-2px;margin-right:4px" aria-hidden="true"></i> FAQ</h3>
+        <dl>
+          <div class="faq-item">
+            <dt>What is a good EMI-to-income ratio in India?</dt>
+            <dd>Financial advisors recommend keeping your total EMI under 40–50% of your net monthly income. For home loans, aim for 30–35%.</dd>
+          </div>
+          <div class="faq-item">
+            <dt>Which bank has the lowest home loan rate in 2025?</dt>
+            <dd>Rates vary by lender and credit score. As of 2025, rates typically range from 8.35% to 9.5% for home loans in India.</dd>
+          </div>
+          <div class="faq-item">
+            <dt>Can I prepay my loan to save interest?</dt>
+            <dd>Yes — prepaying even a small amount reduces your principal and total interest significantly. Many banks allow partial prepayment without penalty.</dd>
+          </div>
+          <div class="faq-item">
+            <dt>Is EMI interest tax-deductible in India?</dt>
+            <dd>Home loan interest is deductible under Section 24(b) up to ₹2 lakh per year. Principal repayment is deductible under Section 80C up to ₹1.5 lakh.</dd>
+          </div>
+        </dl>
+      </div>
+
+      <!-- SECOND SIDEBAR AD -->
+      <div aria-label="Advertisement">
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+      </div>
+
+      <div class="sidebar-card">
+        <h3>Quick tips</h3>
+        <ul style="font-size:13px;color:var(--text2);line-height:1.8;padding-left:1rem">
+          <li>Home loan rates: 8.35%–9.5%</li>
+          <li>Car loan rates: 8.5%–12%</li>
+          <li>Personal loan: 10.5%–24%</li>
+          <li>Education loan: 8%–15%</li>
+          <li>Max home loan tenure: 30 years</li>
+          <li>RBI repo rate: Check RBI.org.in</li>
+        </ul>
+      </div>
+
+    </aside>
+
+  </div><!-- /content-grid -->
+
+  <!-- BOTTOM AD -->
+  <div aria-label="Advertisement">
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7488990313141502" data-ad-slot="auto" data-ad-format="auto" data-full-width-responsive="true"></ins>
+    <script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>
+  </div>
+
+</main>
+
+<!-- ════════════════════════════════════════
+     FOOTER
+════════════════════════════════════════ -->
+<footer>
+  <p style="margin-bottom:8px">
+    <a href="#">Home</a>
+    <a href="#">Privacy Policy</a>
+    <a href="#">Disclaimer</a>
+    <a href="#">Contact</a>
+  </p>
+  <p>Results are for general informational purposes only and do not constitute financial advice. Consult a SEBI-registered financial advisor for personalised guidance.</p>
+  <p style="margin-top:6px">© 2025 FinCalc India. All rights reserved.</p>
+</footer>
+
+<!-- ════════════════════════════════════════
+     JAVASCRIPT
+════════════════════════════════════════ -->
+<script>
+var emiChart = null;
+var loanRate = 8.5, loanTenure = 10, loanAmt = 1000000;
+
+function fmt(n) { return '₹' + Math.round(n).toLocaleString('en-IN'); }
+function fmtN(n) { return Math.round(n).toLocaleString('en-IN'); }
+
+/* ── TAB SWITCHING ── */
+function switchTab(id, btn) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => { b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+  document.getElementById('panel-' + id).classList.add('active');
+  btn.classList.add('active');
+  btn.setAttribute('aria-selected','true');
+}
+
+/* ── EMI SLIDER SYNC ── */
+function syncLoan(v) {
+  loanAmt = parseFloat(v);
+  document.getElementById('loan-amt').value = v;
+  calcEMI();
+}
+function syncLoanInput(v) {
+  loanAmt = parseFloat(v) || 1000000;
+  document.getElementById('loan-slider').value = Math.min(10000000, Math.max(50000, loanAmt));
+  calcEMI();
+}
+function syncRate(v) {
+  loanRate = parseFloat(v);
+  document.getElementById('rate-disp').textContent = parseFloat(v).toFixed(1) + '%';
+  calcEMI();
+}
+function syncTenure(v) {
+  loanTenure = parseInt(v);
+  document.getElementById('tenure-disp').textContent = v + ' yr';
+  calcEMI();
+}
+
+/* ── EMI CALCULATION ── */
+function calcEMI() {
+  var P = loanAmt, r = loanRate / 12 / 100, n = loanTenure * 12;
+  var emi = P * r * Math.pow(1 + r, n) / (Math.pow(1 + r, n) - 1);
+  var total = emi * n, interest = total - P;
+
+  document.getElementById('emi-metrics').innerHTML =
+    metric('Monthly EMI', fmt(emi), 'blue') +
+    metric('Total interest', fmt(interest), 'red') +
+    metric('Total payment', fmt(total), '') +
+    metric('Interest ratio', Math.round(interest / total * 100) + '%', '');
+
+  /* Build amortisation */
+  var sm = document.getElementById('start-month').value;
+  var startDate = sm ? new Date(sm + '-01') : new Date();
+  startDate.setDate(1);
+  var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  var bal = P, rows = '', principals = [], interests = [];
+  for (var i = 1; i <= n; i++) {
+    var intPart = bal * r, prinPart = emi - intPart;
+    bal = Math.max(0, bal - prinPart);
+    var d = new Date(startDate.getFullYear(), startDate.getMonth() + i - 1, 1);
+    var label = months[d.getMonth()] + ' ' + d.getFullYear();
+    principals.push(Math.round(prinPart));
+    interests.push(Math.round(intPart));
+    rows += '<tr><td>' + i + '</td><td>' + label + '</td><td>' + fmt(emi) + '</td><td>' + fmt(prinPart) + '</td><td>' + fmt(intPart) + '</td><td>' + fmt(bal) + '</td></tr>';
+  }
+  document.getElementById('amort-body').innerHTML = rows;
+
+  /* Yearly chart data */
+  var years = [], yp = [], yi = [];
+  for (var y = 0; y < loanTenure; y++) {
+    var slice = principals.slice(y * 12, (y + 1) * 12);
+    var islice = interests.slice(y * 12, (y + 1) * 12);
+    years.push('Yr ' + (y + 1));
+    yp.push(slice.reduce(function(a, b) { return a + b; }, 0));
+    yi.push(islice.reduce(function(a, b) { return a + b; }, 0));
+  }
+
+  if (emiChart) emiChart.destroy();
+  var ctx = document.getElementById('emi-chart').getContext('2d');
+  emiChart = new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: years,
+      datasets: [
+        { label: 'Principal', data: yp, backgroundColor: '#1D9E75', borderWidth: 0 },
+        { label: 'Interest', data: yi, backgroundColor: '#E24B4A', borderWidth: 0 }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      plugins: { legend: { labels: { font: { size: 12 }, color: '#888780' } } },
+      scales: {
+        x: { stacked: true, ticks: { color: '#888780', font: { size: 11 } }, grid: { display: false } },
+        y: { stacked: true, ticks: { color: '#888780', font: { size: 11 }, callback: function(v) { return '₹' + Math.round(v / 1000) + 'k'; } }, grid: { color: 'rgba(136,135,128,0.1)' } }
+      }
+    }
+  });
+}
+
+function metric(lbl, val, cls) {
+  return '<div class="metric"><div class="metric-lbl">' + lbl + '</div><div class="metric-val ' + cls + '">' + val + '</div></div>';
+}
+
+/* ── DATE DIFFERENCE ── */
+function calcDate() {
+  var d1 = document.getElementById('d1').value, d2 = document.getElementById('d2').value;
+  if (!d1 || !d2) return;
+  var a = new Date(d1), b = new Date(d2);
+  if (b < a) { var t = a; a = b; b = t; }
+  var diffMs = b - a, diffDays = Math.round(diffMs / 86400000);
+  var weeks = Math.floor(diffDays / 7);
+  var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  document.getElementById('diff-rows').innerHTML =
+    diffRow('ti-calendar', 'Total days', fmtN(diffDays) + ' days') +
+    diffRow('ti-clock', 'Weeks & days', fmtN(weeks) + ' weeks, ' + (diffDays % 7) + ' days') +
+    diffRow('ti-calendar-stats', 'Approx months', Math.round(diffDays / 30.44) + ' months') +
+    diffRow('ti-arrow-right', 'Start day', dayNames[new Date(d1).getDay()]) +
+    diffRow('ti-arrow-right', 'End day', dayNames[new Date(d2).getDay()]);
+  document.getElementById('date-diff-result').style.display = 'block';
+}
+
+function calcAddDays() {
+  var base = document.getElementById('add-from').value;
+  var days = parseInt(document.getElementById('add-days').value);
+  if (!base || isNaN(days)) return;
+  var d = new Date(base);
+  d.setDate(d.getDate() + days);
+  var opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  document.getElementById('add-result').innerHTML =
+    '<div class="result-big">' + d.toLocaleDateString('en-IN', opts) + '</div>' +
+    '<div class="result-sub">' + Math.abs(days) + ' days ' + (days >= 0 ? 'after' : 'before') + ' ' + new Date(base).toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }) + '</div>';
+  document.getElementById('add-result-card').style.display = 'block';
+}
+
+function diffRow(icon, key, val) {
+  return '<div class="diff-row"><span class="diff-key"><i class="ti ' + icon + '" style="font-size:14px" aria-hidden="true"></i> ' + key + '</span><span class="diff-val">' + val + '</span></div>';
+}
+
+/* ── AGE CALCULATOR ── */
+function calcAge() {
+  var dob = document.getElementById('dob').value, ref = document.getElementById('age-ref').value;
+  if (!dob || !ref) return;
+  var birth = new Date(dob), refDate = new Date(ref);
+  if (refDate <= birth) return;
+
+  var years = refDate.getFullYear() - birth.getFullYear();
+  var mo = refDate.getMonth() - birth.getMonth();
+  var dy = refDate.getDate() - birth.getDate();
+  if (dy < 0) { mo--; dy += new Date(refDate.getFullYear(), refDate.getMonth(), 0).getDate(); }
+  if (mo < 0) { years--; mo += 12; }
+
+  var totalDays = Math.round((refDate - birth) / 86400000);
+  var totalWeeks = Math.floor(totalDays / 7);
+  var totalMonths = years * 12 + mo;
+  var totalHours = totalDays * 24;
+
+  var nextBday = new Date(refDate.getFullYear(), birth.getMonth(), birth.getDate());
+  if (nextBday <= refDate) nextBday.setFullYear(nextBday.getFullYear() + 1);
+  var daysToNext = Math.round((nextBday - refDate) / 86400000);
+  var dayNames = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+
+  document.getElementById('age-grid').innerHTML =
+    '<div class="age-card"><div class="age-num">' + years + '</div><div class="age-lbl">Years</div></div>' +
+    '<div class="age-card"><div class="age-num">' + mo + '</div><div class="age-lbl">Months</div></div>' +
+    '<div class="age-card"><div class="age-num">' + dy + '</div><div class="age-lbl">Days</div></div>';
+
+  document.getElementById('age-rows').innerHTML =
+    diffRow('ti-calendar', 'Total days lived', fmtN(totalDays)) +
+    diffRow('ti-clock', 'Total weeks', fmtN(totalWeeks)) +
+    diffRow('ti-calendar-stats', 'Total months', fmtN(totalMonths)) +
+    diffRow('ti-sun', 'Total hours', fmtN(totalHours)) +
+    diffRow('ti-arrow-right', 'Born on', dayNames[birth.getDay()]) +
+    diffRow('ti-cake', 'Next birthday in', daysToNext + ' days') +
+    diffRow('ti-star', 'Zodiac sign', getZodiac(birth.getMonth() + 1, birth.getDate()));
+
+  document.getElementById('age-result').style.display = 'block';
+}
+
+function getZodiac(m, d) {
+  if ((m==3&&d>=21)||(m==4&&d<=19)) return 'Aries (Mesh)';
+  if ((m==4&&d>=20)||(m==5&&d<=20)) return 'Taurus (Vrishabh)';
+  if ((m==5&&d>=21)||(m==6&&d<=20)) return 'Gemini (Mithun)';
+  if ((m==6&&d>=21)||(m==7&&d<=22)) return 'Cancer (Kark)';
+  if ((m==7&&d>=23)||(m==8&&d<=22)) return 'Leo (Simha)';
+  if ((m==8&&d>=23)||(m==9&&d<=22)) return 'Virgo (Kanya)';
+  if ((m==9&&d>=23)||(m==10&&d<=22)) return 'Libra (Tula)';
+  if ((m==10&&d>=23)||(m==11&&d<=21)) return 'Scorpio (Vrischik)';
+  if ((m==11&&d>=22)||(m==12&&d<=21)) return 'Sagittarius (Dhanu)';
+  if ((m==12&&d>=22)||(m==1&&d<=19)) return 'Capricorn (Makar)';
+  if ((m==1&&d>=20)||(m==2&&d<=18)) return 'Aquarius (Kumbh)';
+  return 'Pisces (Meen)';
+}
+
+/* ── INIT ── */
+(function init() {
+  var now = new Date();
+  var pad = function(n) { return String(n).padStart(2, '0'); };
+  var today = now.getFullYear() + '-' + pad(now.getMonth() + 1) + '-' + pad(now.getDate());
+  var thisMonth = now.getFullYear() + '-' + pad(now.getMonth() + 1);
+  document.getElementById('start-month').value = thisMonth;
+  document.getElementById('d1').value = today;
+  document.getElementById('d2').value = today;
+  document.getElementById('add-from').value = today;
+  document.getElementById('age-ref').value = today;
+  setTimeout(calcEMI, 100);
+})();
+</script>
+
+</body>
+</html>
